@@ -1,0 +1,26 @@
+{
+	"name": "final-project-expense-tracker",
+	"version": "1.0.0",
+	"description": "CS290 final project",
+	"main": "server.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"prestart": "bash ./compile_templates.sh",
+		"start": "node server.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/osu-cs290-f19/final-project-expense-tracker.git"
+	},
+	"author": "Robert Detjens, Jackson Perry",
+	"license": "GPL-3.0",
+	"bugs": {
+		"url": "https://github.com/osu-cs290-f19/final-project-expense-tracker/issues"
+	},
+	"homepage": "https://github.com/osu-cs290-f19/final-project-expense-tracker#readme",
+	"dependencies": {
+		"express": "^4.17.1",
+		"express-handlebars": "^3.1.0",
+		"handlebars": "^4.5.3"
+	}
+}

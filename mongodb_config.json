@@ -1,0 +1,6 @@
+{
+	"host": "localhost",
+	"user": "queuebot",
+	"pass": "queuebotisgreat",
+	"dbname": "queuebot"
+}

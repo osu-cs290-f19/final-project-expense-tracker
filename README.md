@@ -2,31 +2,33 @@
 
 ### API reference
 
+POST data to `/api` 
+
 ```
 POST: {
-	user:
-	pass:
-	only: "ID" (optional)
+  user: ""
+  pass: ""
+  only: "ID" (optional)
 }
 ```
 
-If `only: ` is specified, `response.data` will be an array with only the entry with the given ID.
+If `only:` is specified, `response.data` will be an array with only the entry with the given ID.
 
-If no `only: ` field, response will be an array with all entries for that user.
+If no `only:` field, `response.data` will be an array with all entries for that user.
 
 ```
 RESPONSE: {
-	data: [
-		{
-			id:
-			date:
-			amount:
-			category:
-			place:
-			descrip:
-		},
-		{...}
-	]
+  data: [
+    {
+      id: ###
+      date: "mm/dd/yyyy"
+      amount: "##.##"
+      category: ""
+      place: ""
+      descrip: ""
+    },
+    {...}
+  ]
 }
 ```
 
@@ -103,25 +105,25 @@ Before having your project graded, your team must add all of its members into on
 
 Your team’s grade (out of 100 points) for the final project will be based on successfully implementing a complete web app that satisfies these criteria:
 
-	50 points – Your app satisfies these requirements:
+-50 points – Your app satisfies these requirements:
 
-		The app uses HTML and CSS to implement a well-designed client interface.
+	- The app uses HTML and CSS to implement a well-designed client interface.
 
-		The app uses client-side JS to enable relevant user interactions.
+	- The app uses client-side JS to enable relevant user interactions.
 
-		The app is served using a Node.js-based (or other approved) serving stack.
+	- The app is served using a Node.js-based (or other approved) serving stack.
 
-		The app dynamically generates pages based on data stored permanently on the back end.
+	- The app dynamically generates pages based on data stored permanently on the back end.
 
-		The app’s client interface communicates with the app’s server to create, read, update, and/or delete content in the back end data store.
+	- The app’s client interface communicates with the app’s server to create, read, update, and/or delete content in the back end data store.
 
-	25 points – Your app has a high-quality design and implementation.
+- 25 points – Your app has a high-quality design and implementation.
 
-		For example, your app is free of bugs and has an effective user interface.
+	- For example, your app is free of bugs and has an effective user interface.
 
-	25 points – Your app is creative and original.
+- 25 points – Your app is creative and original.
 
-		If, for example, your app is simply a repackaging of the app we develop together during lecture or the one you developed during your assignments this term, you will likely not score highly in this category.
+	- If, for example, your app is simply a repackaging of the app we develop together during lecture or the one you developed during your assignments this term, you will likely not score highly in this category.
 
 
 

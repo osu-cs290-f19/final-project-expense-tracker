@@ -18,7 +18,7 @@ header {
 insert css for footer here
 */
 footer{
-    background-color: #000;
+    background-color: rgb(219, 215, 215);
     display: flex;
     align-items: center;
     position: relative;
@@ -111,5 +111,9 @@ css below is for filter container
     /*
     css here is for the expense table
     */
+
+    table, th, td {
+      border: 1px solid black;
+    }
 
     

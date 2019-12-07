@@ -2,21 +2,12 @@
 
 ### API reference
 
-POST data to `/api` 
+To get post data:
 
 ```
-POST: {
-  user: ""
-  pass: ""
-  only: "ID" (optional)
-}
-```
+GET /api/<username>/
+GET /api/<username>/<postID>
 
-If `only:` is specified, `response.data` will be an array with only the entry with the given ID.
-
-If no `only:` field, `response.data` will be an array with all entries for that user.
-
-```
 RESPONSE: {
   data: [
     {
@@ -32,6 +23,23 @@ RESPONSE: {
 }
 ```
 
+If `/<postID>` , `response.data` will be an array with only the entry with the given ID.
+
+If `/` , `response.data` will be an array with all entries for that user.
+
+To add new field:
+
+```
+POST /api/<username>/add
+body: {
+  id: ###
+  date: "mm/dd/yyyy"
+  amount: "##.##"
+  category: ""
+  place: ""
+  descrip: ""
+}
+```
 
 ----------
 

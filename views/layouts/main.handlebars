@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Expense Tracker</title>
+
+		<link rel="stylesheet" href="/style.css">
+		
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.runtime.js"></script>
+		<script src="/expense.template.js" charset="utf-8" defer></script>
+		<script src="/index.js" charset="utf-8" defer></script>
+
+	</head>
+	<body>
+
+		<header>
+
+			<div class="header-image-container">
+				<img src="/expense.jpg" alt="Expense Tracker Logo">
+			</div>
+
+			<h1 class="site-title"><a href="#">Expense Tracker</a></h1>
+
+		</header>
+
+		{{{body}}}
+
+	</body>
+
+    <footer>
+        <p>Created by: Jackson Perry and Robert Detjens</p>
+		<p>For CS 290 with Rob Hess</p>
+    </footer>
+
+</html>

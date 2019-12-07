@@ -1,0 +1,115 @@
+/*
+css below is for main layout stuff
+*/
+body {
+	font-family: "Open Sans", sans-serif;
+	margin: 0px;
+	background: #dedede;
+}
+
+header {
+    background-color: #000;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+/*
+insert css for footer here
+*/
+footer{
+    background-color: #000;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+/*
+css below is for filter container
+*/
+.filter-container {
+    display: inline-block;
+    min-width: 200px;
+    max-width: 200px;
+    margin: 10px 10px auto 10px;
+    padding: 20px;
+    border-radius: 3px;
+    background-color: #efefef;
+  }
+  
+  .filter-container h2 {
+    margin: 0;
+  }
+  
+  .filter-input-container {
+    width: 100%;
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+  }
+  
+  .filter-input-element {
+    margin: 0 5px;
+    flex: 1 1 100%;
+  }
+  
+  .filter-input {
+    font-size: 14px;
+    width: 100%;
+    margin-left: 10px;
+    padding: 3px;
+    border: 1px solid #dadada;
+    border-radius: 3px;
+  }
+  
+  .filter-fieldset {
+    flex: 1 100%;
+    border: 1px solid #ababab;
+  }
+
+  /*
+  everything below is for the login form and may need different specifiers to work
+  */
+  #container {
+    position: fixed;
+    width: 340px;
+    height: 280px;
+    top: 50%;
+    left: 50%;
+    margin-top: -140px;
+    margin-left: -170px;
+    }
+
+    form {
+        margin: 0 auto;
+        margin-top: 20px;
+    }
+
+    label {
+        color: #555;
+        display: inline-block;
+        margin-left: 18px;
+        padding-top: 10px;
+        font-size: 14px;
+    }
+
+    input[type=checkbox] {
+        margin-left: 20px;
+        margin-top: 30px;
+    }
+    .check {
+        margin-left: 3px;
+    }
+    input[type=submit] {
+        float: right;
+        margin-right: 20px;
+        margin-top: 20px;
+        width: 80px;
+        height: 30px;
+    }
+
+    /*
+    css here is for the expense table
+    */
+
+    

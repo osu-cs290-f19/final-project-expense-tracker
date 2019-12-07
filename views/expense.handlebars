@@ -1,0 +1,70 @@
+<main class="content">
+
+	<aside class="filter-container">
+
+		<h2>Filters</h2>
+
+		<div class="filter-input-container">
+			<label for="filter-date" class="filter-input-label">Date</label>
+			<div class="filter-input-element">
+				<input type="text" name="filter-date" id="filter-date" class="filter-input">
+			</div>
+		</div>
+
+		<div class="filter-input-container">
+			<label for="filter-place" class="filter-input-label">Place</label>
+			<div class="filter-input-element">
+				<input type="text" name="filter-place" id="filter-place" class="filter-input">
+			</div>
+		</div>
+
+        <div class="filter-input-container">
+			<label for="filter-amount" class="filter-amount">Amount</label>
+			<div class="filter-input-element">
+				<input type="text" name="filter-amount" id="filter-amount" class="filter-input">
+			</div>
+		</div>
+
+        <div class="filter-input-container">
+			<label for="filter-description" class="filter-description">Description</label>
+			<div class="filter-input-element">
+				<input type="text" name="filter-description" id="filter-description" class="filter-input">
+			</div>
+		</div>
+
+		<div class="filter-input-container">
+			<label for="filter-category">City</label>
+			<div class="filter-input-element">
+				<select id="filter-category" class="filter-input" name="filter-category">
+					<option selected value="">Any</option>
+					<option>Housing</option>
+					<option>School</option>
+					<option>Food</option>
+                    <option>Investing</option>
+                    <option>Health</option>
+                    <option>Clothes</option>
+				</select>
+			</div>
+		</div>
+
+		<button id="filter-update-button" class="action-button">Filter</button>
+
+	</aside>
+	
+	<section id="expenses">
+        <table id="expense-table">
+            <tr id="expense-firstrow">
+                <th id="expense-date">Date</th>
+                <th id="expense-place">Place</th>
+                <th id="expense-amount">Amount</th>
+                <th id="expense-description">Description</th>
+                <th id="expense-category">Category</th>
+            </tr>
+            {{#each row}}
+			    {{> expense}}
+		    {{/each}}
+        </table>
+
+	</section>
+
+</main>

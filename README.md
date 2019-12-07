@@ -2,19 +2,19 @@
 
 ### API reference
 
-`
+```
 POST: {
 	user:
 	pass:
-	want: ("all", "##")
+	only: "ID" (optional)
 }
-`
+```
 
-If `want: "all"` response.data will be array with all entries.
+If `only: ` is specified, `response.data` will be an array with only the entry with the given ID.
 
-If `want: "##"` response.data will be array with only the specified entry . 
+If no `only: ` field, response will be an array with all entries for that user.
 
-`
+```
 RESPONSE: {
 	data: [
 		{
@@ -28,7 +28,7 @@ RESPONSE: {
 		{...}
 	]
 }
-`
+```
 
 
 ----------

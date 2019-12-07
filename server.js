@@ -47,6 +47,10 @@ app.get('/', (req, res, next) => {
 	res.render('index');
 });
 
+app.get('/expense', (req, res, next) => {
+	res.render('expense');
+});
+
 app.use(express.static('public'));
 
 app.get('*', (req, res) => {

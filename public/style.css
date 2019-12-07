@@ -12,16 +12,44 @@ header {
     display: flex;
     align-items: center;
     position: relative;
+    height: 150px;
+    padding: 15px;
+}
+
+.header-image-container {
+	margin: 10px;
+}
+.header-image-container>img {
+	max-height: 100px;
+}
+.site-title {
+	margin: 10px;
+	display: inline;
+	font-weight:400;
+	font-size: 40px;
+}
+.site-title>a {
+	text-decoration: none;
+	color: rgb(219, 215, 215);
 }
 
 /*
 insert css for footer here
 */
-footer{
+footer {
     background-color: rgb(219, 215, 215);
-    display: flex;
     align-items: center;
-    position: relative;
+    
+    position: fixed;    
+	left:0px;
+	bottom:0px;
+	
+	padding: 15px;
+}
+
+.footer-text {
+	display: inline-block;
+	margin: 15px;
 }
 
 /*

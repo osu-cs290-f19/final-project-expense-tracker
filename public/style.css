@@ -144,4 +144,9 @@ css below is for filter container
       border: 1px solid black;
     }
 
+    table{
+      position: absolute;
+      right: 150px;
+      top: 200px;
+    }
     

@@ -16,12 +16,16 @@
 			<div class="filter-input-element">
 				<input type="text" name="filter-place" id="filter-place" class="filter-input">
 			</div>
+			
 		</div>
 
         <div class="filter-input-container">
 			<label for="filter-amount" class="filter-amount">Amount</label>
 			<div class="filter-input-element">
-				<input type="text" name="filter-amount" id="filter-amount" class="filter-input">
+				<input type="text" name="filter-amount" id="filter-amount" class="filter-input" placeholder="min">
+			</div>
+			<div class="filter-input-element">
+				<input type="text" name="filter-amount" id="filter-amount" class="filter-input" placeholder="max">
 			</div>
 		</div>
 
@@ -63,6 +67,13 @@
             {{#each row}}
 			    {{> expense}}
 		    {{/each}}
+			<tr id="expense-newrow">
+                <td id="expense-newdate">&nbsp;</td>
+                <td id="expense-newplace">&nbsp;</td>
+                <td id="expense-newamount">&nbsp;</td>
+                <td id="expense-newdescription">&nbsp;</td>
+                <td id="expense-newcategory">&nbsp;</td>
+            </tr>
         </table>
 
 	</section>

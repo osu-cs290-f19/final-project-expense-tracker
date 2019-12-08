@@ -1,24 +1,25 @@
 
-
+document.getElementById("submit-button").addEventListener("click", (event) => {
+    var user = document.getElementById("username").value.toLowerCase();
+    var url = window.location.href + "expenses/" + user;
+	console.log("logging in user", user);
+    window.location.assign(url);
+});
 document.getElementById("expense-add-button").addEventListener("click", addButtonClick);
 document.getElementById("filter-update-button").addEventListener("click", filterButtonClick);
-document.getElementById("submit-button").addEventListener("click", loginButtonClick);
 
-function loginButtonClick(){
-    var user = document.getElementById("username").value;
-    var url = window.location.href + "api/" + user + "/all";
-    window.location.replace(url);
-}
+
 
 function filterButtonClick(){
 	
 }
 
 function addButtonClick(){
-	var username, url, postID;
-    url = window.location.href;
-    url = str.slice(19, url.length);
-    username = str.slice(0, url.length - 4);
+	var postID;
+    
+    const username = window.location.href.match(/(\w*)$/i)[0];
+    console.log("username", username);
+    
 	postID = document.getElementById("expense-table").children[0].childElementCount -2;
 	var expense =   {
 		date: document.getElementById("expense-label-newdate").value,
@@ -31,16 +32,17 @@ function addButtonClick(){
 		alert("You need to fill the entire row.");
 		return;
 	}
-	console.log(expense);
 	
 	var postHTML = Handlebars.templates.expenseTemp(expense);
 	var expenseTable = document.getElementById("expense-newrow");
 	expenseTable.insertAdjacentHTML('beforebegin', postHTML);
 	
+	expense.id = postID;
+	console.log(expense);
 	//sending data to mongoDB
 	
 	var request = new XMLHttpRequest();
-	url = "/api/" + username + "/add";
+	let url = "/api/" + username + "/add";
 	console.log(url);
 	request.open("POST", url, true);
 	request.setRequestHeader("Content-Type", "application/json");
@@ -51,8 +53,8 @@ function addButtonClick(){
 }
 };
 */
-	expense.id = postID;
-	request.send(expense);
+	
+	request.send(JSON.stringify(expense));
 }
 
 function parseExpenseElem(postElem){

@@ -21,12 +21,12 @@ var db;
 // ============
 //   HANDLERS
 // ------------
-app.use(bodyParser.json());
-
 app.all('*', (req, res, next) => {
 	console.log("[ " + req.method + " ]", req.url);
 	next();
 });
+
+app.use(bodyParser.json());
 
 app.post('/api/:username/add', async (req, res, next) => {
 	const username = req.params.username.toLowerCase();
@@ -103,8 +103,11 @@ app.get('/', (req, res, next) => {
 	res.render('index');
 });
 
-app.get('/expense', (req, res, next) => {
-	res.render('expense');
+app.get('/expenses/:username', async (req, res, next) => {
+	const username = req.params.username.toLowerCase();
+	const userDB = db.collection(username);
+	const findarr = await userDB.find({}).toArray();
+	res.render('expense', {row: findarr});
 });
 
 app.use(express.static('public'));

@@ -24,7 +24,7 @@ var db;
 app.use(bodyParser.json());
 
 app.all('*', (req, res, next) => {
-	console.log("[ " + req.method + " ] ", req.url);
+	console.log("[ " + req.method + " ]", req.url);
 	next();
 });
 
@@ -34,13 +34,37 @@ app.post('/api/:username/add', async (req, res, next) => {
 	
 	if (id && date && amount && category && place && descrip) {
 		
-		console.log("[ POST ] Got new post: ", req.body);
+		console.log("[ POST ] Adding new entry: ", req.body);
+		
+		const userDB = db.collection(username);
+		
+		const findarr = await userDB.find({id: id}).toArray();
+		
+		// if duplicate id
+		if (findarr.length != 0) {
+			res.status(409).send("ERR Duplicate ID");
+		}
+		
+		userDB.insertOne({
+			id: id,
+			date: date,
+			amount: amount,
+			category: category,
+			place: place,
+			descrip: place,
+		});
+		
+		res.status(201).send("OK New entry added");
 		
 	}
 	else {
-		res.status(400).send("Missing / blank data");
+		res.status(400).send("ERR Missing / blank data");
 	}
 	
+});
+
+app.get('/api/:username/:id', async (req, res, next) => {
+	console.log("[ GET ] asking for specific entry");
 });
 
 app.get('/', (req, res, next) => {

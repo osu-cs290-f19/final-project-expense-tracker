@@ -100,14 +100,14 @@ app.get('/api/:username/:id', async (req, res, next) => {
 });
 
 app.get('/', (req, res, next) => {
-	res.render('index');
+	res.render('index'. {js: "index.js"});
 });
 
 app.get('/expenses/:username', async (req, res, next) => {
 	const username = req.params.username.toLowerCase();
 	const userDB = db.collection(username);
 	const findarr = await userDB.find({}).toArray();
-	res.render('expense', {row: findarr});
+	res.render('expense', {row: findarr, js: "expense.js"});
 });
 
 app.use(express.static('public'));

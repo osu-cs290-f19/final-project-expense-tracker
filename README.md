@@ -2,11 +2,11 @@
 
 ### API reference
 
-To get post data:
+To get entry data:
 
 ```
-GET /api/<username>/
-GET /api/<username>/<postID>
+GET /api/<username>/all
+GET /api/<username>/<ID>
 
 RESPONSE: {
   data: [
@@ -23,9 +23,9 @@ RESPONSE: {
 }
 ```
 
-If `/<postID>` , `response.data` will be an array with only the entry with the given ID.
+If `/<ID>` , `response.data` will be an array with only the entry with the given ID.
 
-If `/` , `response.data` will be an array with all entries for that user.
+If `/all` , `response.data` will be an array with all entries for that user.
 
 To add new field:
 

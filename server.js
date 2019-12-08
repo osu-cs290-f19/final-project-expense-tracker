@@ -32,39 +32,67 @@ app.post('/api/:username/add', async (req, res, next) => {
 	const username = req.params.username.toLowerCase();
 	const { id, date, amount, category, place, descrip } = req.body;
 	
-	if (id && date && amount && category && place && descrip) {
-		
-		console.log("[ POST ] Adding new entry: ", req.body);
-		
-		const userDB = db.collection(username);
-		
-		const findarr = await userDB.find({id: id}).toArray();
-		
-		// if duplicate id
-		if (findarr.length != 0) {
-			res.status(409).send("ERR Duplicate ID");
-		}
-		
-		userDB.insertOne({
-			id: id,
-			date: date,
-			amount: amount,
-			category: category,
-			place: place,
-			descrip: place,
-		});
-		
-		res.status(201).send("OK New entry added");
-		
-	}
-	else {
+	// if missing data
+	if ( !(id && date && amount && category && place && descrip) ) {
 		res.status(400).send("ERR Missing / blank data");
+		return;
 	}
+	
+	console.log("[ POST ] Adding new entry: ", req.body);
+	
+	// if non-positive/non-int ID
+	if (isNaN(id) || id < 0 || Math.floor(id) != id) {
+		res.status(400).send("ERR Bad ID");
+		return;
+	} 
+	
+	const userDB = db.collection(username);
+	
+	const findarr = await userDB.find({id: id}).toArray();
+	
+	// if duplicate id
+	if (findarr.length != 0) {
+		res.status(409).send("ERR Duplicate ID");
+		return;
+	}
+	
+	userDB.insertOne({
+		id: id,
+		date: date,
+		amount: amount,
+		category: category,
+		place: place,
+		descrip: place,
+	});
+	
+	res.status(201).send("OK New entry added");
 	
 });
 
 app.get('/api/:username/:id', async (req, res, next) => {
-	console.log("[ GET ] asking for specific entry");
+	const username = req.params.username.toLowerCase();
+	const userDB = db.collection(username);
+	const id = req.params.id;
+	let filterObj;
+	
+	console.log("[ GET ] asking for specific entry", id);
+	
+	// if all
+	if (req.params.id == 'all') {
+		filterObj = {};
+	}
+	// if non-positive/non-int ID
+	else if (isNaN(id) || id < 0 || Math.floor(id) != id) {
+		res.status(400).send("ERR Bad ID");
+		return;
+	} else {
+		filterObj = {"id": id}
+	}
+	
+	const findarr = await userDB.find(filterObj).toArray();
+	
+	res.status(200).send(findarr);
+	
 });
 
 app.get('/', (req, res, next) => {

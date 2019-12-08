@@ -16,11 +16,11 @@ function addButtonClick(){
     var username, url, postID;
     postID = document.getElementById("expense-table").childElementCount -2;
     var expense =   {
-        Date: document.getElementById("expense-newdate"),
-        Place: document.getElementById("expense-newplace"),
-        Amount: document.getElementById("expense-newamount"),
-        Description: document.getElementById("expense-newdescription"),
-        Category: document.getElementById("expense-newcategory")
+        Date: document.getElementById("expense-label-newdate").value,
+        Place: document.getElementById("expense-label-newplace").value,
+        Amount: document.getElementById("expense-label-newamount").value,
+        Description: document.getElementById("expense-label-newdescription").value,
+        Category: document.getElementById("expense-label-newcategory").value
     };
     if(!(expense.Date && expense.Place && expense.Amount && expense.Description && expense.Category)){
         alert("You need to fill the entire row.");

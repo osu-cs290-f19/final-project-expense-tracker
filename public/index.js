@@ -19,7 +19,7 @@ function addButtonClick(){
         Date: document.getElementById("expense-newdate"),
         Place: document.getElementById("expense-newplace"),
         Amount: document.getElementById("expense-newamount"),
-        Description: document.getElementById('expense-newdescription'),
+        Description: document.getElementById("expense-newdescription"),
         Category: document.getElementById("expense-newcategory")
     };
     if(!(expense.Date && expense.Place && expense.Amount && expense.Description && expense.Category)){

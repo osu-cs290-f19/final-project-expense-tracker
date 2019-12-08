@@ -21,13 +21,13 @@ function addButtonClick(){
     username = str.slice(0, url.length - 4);
 	postID = document.getElementById("expense-table").children[0].childElementCount -2;
 	var expense =   {
-		Date: document.getElementById("expense-label-newdate").value,
-		Place: document.getElementById("expense-label-newplace").value,
-		Amount: document.getElementById("expense-label-newamount").value,
-		Description: document.getElementById("expense-label-newdescription").value,
-		Category: document.getElementById("expense-label-newcategory").value
+		date: document.getElementById("expense-label-newdate").value,
+		place: document.getElementById("expense-label-newplace").value,
+		amount: document.getElementById("expense-label-newamount").value,
+		descrip: document.getElementById("expense-label-newdescription").value,
+		category: document.getElementById("expense-label-newcategory").value
 	};
-	if(!(expense.Date && expense.Place && expense.Amount && expense.Description && expense.Category)){
+	if(!(expense.date && expense.place && expense.amount && expense.descrip && expense.category)){
 		alert("You need to fill the entire row.");
 		return;
 	}
@@ -51,8 +51,8 @@ function addButtonClick(){
 }
 };
 */
-	var data = JSON.stringify({"id": postID, "date": expense.Date, "amount": expense.Amount, "category": expense.Category, "place": expense.Place, "descrip": expense.Description});
-	request.send(data);
+	expense.id = postID;
+	request.send(expense);
 }
 
 function parseExpenseElem(postElem){

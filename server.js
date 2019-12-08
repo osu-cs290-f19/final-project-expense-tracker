@@ -35,6 +35,7 @@ app.post('/api/:username/add', async (req, res, next) => {
 	// if missing data
 	if ( !(id && date && amount && category && place && descrip) ) {
 		res.status(400).send("ERR Missing / blank data");
+		console.log("[ ERR ] Missing data");
 		return;
 	}
 	
@@ -43,6 +44,7 @@ app.post('/api/:username/add', async (req, res, next) => {
 	// if non-positive/non-int ID
 	if (isNaN(id) || id < 0 || Math.floor(id) != id) {
 		res.status(400).send("ERR Bad ID");
+		console.log("[ ERR ] Bad ID");
 		return;
 	} 
 	
@@ -53,6 +55,7 @@ app.post('/api/:username/add', async (req, res, next) => {
 	// if duplicate id
 	if (findarr.length != 0) {
 		res.status(409).send("ERR Duplicate ID");
+		console.log("[ ERR ] Duplicate ID");
 		return;
 	}
 	
@@ -84,6 +87,7 @@ app.get('/api/:username/:id', async (req, res, next) => {
 	// if non-positive/non-int ID
 	else if (isNaN(id) || id < 0 || Math.floor(id) != id) {
 		res.status(400).send("ERR Bad ID");
+		console.log("[ ERR ] Bad ID");
 		return;
 	} else {
 		filterObj = {"id": id}

@@ -33,13 +33,13 @@ app.post('/api/:username/add', async (req, res, next) => {
 	const { id, date, amount, category, place, descrip } = req.body;
 	
 	// if missing data
-	if ( !(id && date && amount && category && place && descrip) ) {
+	if ( !(!isNaN(id) && date && amount && category && place && descrip) ) {
 		res.status(400).send("ERR Missing / blank data");
 		console.log("[ ERR ] Missing data");
 		return;
 	}
 	
-	console.log("[ POST ] Adding new entry: ", req.body);
+	console.log("[ POST ] Adding new entry: " + JSON.stringify(req.body));
 	
 	// if non-positive/non-int ID
 	if (isNaN(id) || id < 0 || Math.floor(id) != id) {
@@ -100,14 +100,14 @@ app.get('/api/:username/:id', async (req, res, next) => {
 });
 
 app.get('/', (req, res, next) => {
-	res.render('index'. {js: "index.js"});
+	res.render('index', {js: "index"});
 });
 
 app.get('/expenses/:username', async (req, res, next) => {
 	const username = req.params.username.toLowerCase();
 	const userDB = db.collection(username);
 	const findarr = await userDB.find({}).toArray();
-	res.render('expense', {row: findarr, js: "expense.js"});
+	res.render('expense', {row: findarr, js: "expense"});
 });
 
 app.use(express.static('public'));

@@ -15,7 +15,7 @@ function filterButtonClick(){
 function addButtonClick(){
 	var username, url, postID;
 	username =  "testUser";
-	postID = document.getElementById("expense-table").childElementCount -2;
+	postID = document.getElementById("expense-table").children[0].childElementCount -2;
 	var expense =   {
 		Date: document.getElementById("expense-label-newdate").value,
 		Place: document.getElementById("expense-label-newplace").value,

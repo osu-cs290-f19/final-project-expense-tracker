@@ -14,6 +14,7 @@ function filterButtonClick(){
 
 function addButtonClick(){
     var username, url, postID;
+    username =  "testUser";
     postID = document.getElementById("expense-table").childElementCount -2;
     var expense =   {
         Date: document.getElementById("expense-label-newdate").value,
@@ -26,6 +27,7 @@ function addButtonClick(){
         alert("You need to fill the entire row.");
         return;
     }
+    console.log(expense);
 
     var postHTML = Handlebars.templates.expenseTemp(expense);
     var expenseTable = document.getElementById("expense-newrow");
@@ -35,6 +37,7 @@ function addButtonClick(){
 
   var request = new XMLHttpRequest();
   url = "/api/" + username + "/add";
+  console.log(url);
   request.open("POST", url, true);
   request.setRequestHeader("Content-Type", "application/json");
  /* request.onreadystatechange = function () {

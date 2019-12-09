@@ -1,160 +1,199 @@
-/*
-css below is for main layout stuff
-*/
 body {
-	font-family: "Open Sans", sans-serif;
-	margin: 0px;
-	background: #dedede;
+    font-family: "Open Sans", sans-serif;
+    margin: 0px;
+    background: #f9f9f9;
 }
 
+/*
+ *	=== HEADER ===
+ */
+
 header {
-    background-color: #000;
+    background-color: #2d2d2d;
     display: flex;
+    
     align-items: center;
     position: relative;
-    height: 150px;
-    padding: 15px;
+    
+    height: 130px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 5%;
+    padding-right: 10%;
+    
+    box-shadow: 0 0 15px rgba(0,0,0, 1);
+    
+    margin-bottom: 20px;
 }
 
 .header-image-container {
-	margin: 10px;
+    margin: 0 10px;
 }
 .header-image-container>img {
-	max-height: 100px;
+    height: 120px;
+    max-height: 90%;
 }
 .site-title {
-	margin: 10px;
-	display: inline;
-	font-weight:400;
-	font-size: 40px;
+    margin: 10px;
+    display: inline;
+    font-weight:400;
+    font-size: 40px;
 }
 .site-title>a {
-	text-decoration: none;
-	color: rgb(219, 215, 215);
+    text-decoration: none;
+    color: #f9f9f9;
 }
 
 /*
-insert css for footer here
-*/
+ *	=== FOOTER ===
+ */
 footer {
-    background-color: rgb(219, 215, 215);
+    background-color: #2d2d2d;
     align-items: center;
+    width: 100%;
     
     position: fixed;    
-	left:0px;
-	bottom:0px;
-	
-	padding: 15px;
+    left:0px;
+    bottom:0px;
+    
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10%;
+    padding-right: 10%;
+    
+    box-shadow: 0 0 5px rgba(0,0,0, 0.5);
 }
 
 .footer-text {
-	display: inline-block;
-	margin: 15px;
+    color: #d64937; 
+    display: inline-block;
+    margin: 5px 15px;
+}
+
+
+/*
+ *	=== FILTER BOX ===
+ */
+.filter-container {
+    margin: 20px;
+    padding: 15px;
+    background-color: #dedede;
+    width: 200px;
+    
+    border: 1px solid #e3e3e3;
+    border-radius: 5px;
+    
+    box-shadow: 0 0 10px rgba(0,0,0, 0.5);
+}
+.filter-container>h2 {
+    text-align: center;
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+.filter-input-container {
+    align-items: center;
+    
+    display: flex;
+    flex-direction: row;
+    
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.filter-input-container>label {
+	margin-left: 0;
+    vertical-align: middle;
+    padding: 0;
+}
+.filter-input-element {
+    flex-grow: 1;
+    margin-left: 10px;
+}
+.filter-input {
+    box-sizing : border-box;
+    width: 100%;
+}
+.filter-fieldset {
+    width: 100%
+}
+#filter-update-button {
+	width: 100%;
+	padding: 10px;
+	
+	background-color: #dedede;
+	transition: background-color 0.1s ease;
+
+	border: 1px solid #000000;
+	border-radius: 5px; 
+
+	font-weight: 300;
+	font-size: 22px;
+	color: #000000;
+}
+#filter-update-button:hover {
+	background-color: #d64937;
+	color: #000000;
 }
 
 /*
-css below is for filter container
-*/
-.filter-container {
+ * everything below is for the login form and may need different specifiers to work
+ */
+#container {
+	position: fixed;
+	width: 340px;
+	height: 280px;
+	top: 50%;
+	left: 50%;
+	margin-top: -140px;
+	margin-left: -170px;
+}
+
+form {
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+label {
+    color: #555;
     display: inline-block;
-    min-width: 200px;
-    max-width: 200px;
-    margin: 10px 10px auto 10px;
-    padding: 20px;
-    border-radius: 3px;
-    background-color: #efefef;
-  }
-  
-  .filter-container h2 {
-    margin: 0;
-  }
-  
-  .filter-input-container {
-    width: 100%;
-    margin: 20px 0;
-    display: flex;
-    align-items: center;
-  }
-  
-  .filter-input-element {
-    margin: 0 5px;
-    flex: 1 1 100%;
-  }
-  
-  .filter-input {
+    margin-left: 18px;
+    padding-top: 10px;
     font-size: 14px;
-    width: 100%;
-    margin-left: 10px;
-    padding: 3px;
-    border: 1px solid #dadada;
-    border-radius: 3px;
-  }
-  
-  .filter-fieldset {
-    flex: 1 100%;
-    border: 1px solid #ababab;
-  }
+}
 
-  /*
-  everything below is for the login form and may need different specifiers to work
-  */
-  #container {
-    position: fixed;
-    width: 340px;
-    height: 280px;
-    top: 50%;
-    left: 50%;
-    margin-top: -140px;
-    margin-left: -170px;
-    }
+input[type=checkbox] {
+    margin-left: 20px;
+    margin-top: 30px;
+}
+.check {
+    margin-left: 3px;
+}
+input[type=submit] {
+    float: right;
+    margin-right: 20px;
+    margin-top: 20px;
+    width: 80px;
+    height: 30px;
+}
 
-    form {
-        margin: 0 auto;
-        margin-top: 20px;
-    }
+/*
+ * css here is for the expense table
+ */
 
-    label {
-        color: #555;
-        display: inline-block;
-        margin-left: 18px;
-        padding-top: 10px;
-        font-size: 14px;
-    }
+table, th, td {
+    border: 1px solid black;
+}
 
-    input[type=checkbox] {
-        margin-left: 20px;
-        margin-top: 30px;
-    }
-    .check {
-        margin-left: 3px;
-    }
-    input[type=submit] {
-        float: right;
-        margin-right: 20px;
-        margin-top: 20px;
-        width: 80px;
-        height: 30px;
-    }
+table{
+    position: absolute;
+    left: 300px;
+    top: 200px;
+}
 
-    /*
-    css here is for the expense table
-    */
+#expense-add-button{
+    position: absolute;
+    right: 300px;
+    top: 300px;
+    height: 200px;
+    width: 200px;
+}
 
-    table, th, td {
-      border: 1px solid black;
-    }
-
-    table{
-      position: absolute;
-      left: 300px;
-      top: 200px;
-    }
-    
-    #expense-add-button{
-      position: absolute;
-      right: 300px;
-      top: 300px;
-      height: 200px;
-      width: 200px;
-    }
-    

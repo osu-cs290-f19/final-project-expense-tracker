@@ -4,7 +4,48 @@ document.getElementById("filter-update-button").addEventListener("click", filter
 
 
 function filterButtonClick(){
-	
+    var date = document.getElementById("filter-date").value;
+    var place = document.getElementById("filter-place").value.toLowerCase();
+    var min = document.getElementById("filter-amount-min").value;
+    var max = document.getElementById("filter-amount-max").value;
+    var descrip = document.getElementById("filter-description").value.toLowerCase();
+    var category = document.getElementById("filter-category").value;
+
+    var rows = document.getElementById("expense-table").children;
+    var post;
+    for(var i=1; i< rows.length; i++){
+        post = parseExpenseElem(rows[i]);
+
+        if(descrip && !post.description.toLowerCase().includes(descrip)){
+            post.remove();
+            i--;
+        }
+
+        else if(min && parseInt(post.amount) < min){
+            post.remove();
+            i--;
+        }
+
+        else if(max && parseInt(post.amount) > max){
+            post.remove();
+            i--;
+        }
+
+        else if(category && post.category !== category){
+            post.remove();
+            i--;
+        }
+
+        else if(date && post.date !== date){
+            post.remove();
+            i--;
+        }
+
+        else if(place && !post.place.toLowerCase().includes(place)){
+            post.remove();
+            i--;
+        }
+    }
 }
 
 function addButtonClick(){

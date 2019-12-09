@@ -37,7 +37,7 @@
 		</div>
 
 		<div class="filter-input-container">
-			<label for="filter-category">City</label>
+			<label for="filter-category">Category</label>
 			<div class="filter-input-element">
 				<select id="filter-category" class="filter-input" name="filter-category">
 					<option selected value="">Any</option>
@@ -59,7 +59,7 @@
 	
 	<section id="expenses">
         <table id="expense-table">
-            <tr id="expense-firstrow">
+            <tr id="expense-header">
                 <th id="expense-date">Date</th>
                 <th id="expense-place">Place</th>
                 <th id="expense-amount">Amount</th>
@@ -69,7 +69,7 @@
             {{#each row}}
 			    {{> expenseTemp}}
 		    {{/each}}
-			<tr id="expense-newrow">
+			<tr id="expense-input-row">
                 <td id="expense-newdate"><input type="text" id="expense-label-newdate"></td>
                 <td id="expense-newplace"><input type="text" id="expense-label-newplace"></td>
                 <td id="expense-newamount"><input type="text" id="expense-label-newamount"></td>
